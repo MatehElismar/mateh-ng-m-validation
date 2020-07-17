@@ -1,13 +1,13 @@
 {
   "name": "mateh-ng-m-validation",
-  "version": "1.1.1",
+  "version": "1.1.4",
   "scripts": {
     "postinstall": "ngcc"
   },
   "peerDependencies": {
-    "@angular/common": "^9.0.7",
-    "@angular/core": "^9.0.7",
-    "@angular/material": "^9.2.2",
+    "@angular/common": "^8.0.0",
+    "@angular/core": "^8.0.0",
+    "@angular/material": "^8.0.1",
     "tslib": "^1.10.0"
   }
 }

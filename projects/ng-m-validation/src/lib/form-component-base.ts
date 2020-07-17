@@ -7,7 +7,7 @@ import {
   ValidationErrors,
   FormControl,
 } from "@angular/forms";
-import { Observable, fromEvent, merge, Subscriber, Subscription } from "rxjs";
+import { Observable, fromEvent, merge, Subscription } from "rxjs";
 import { debounceTime } from "rxjs/operators";
 
 export class FormComponentBase implements OnDestroy {
@@ -81,6 +81,17 @@ export class FormComponentBase implements OnDestroy {
         this.logValidationErrors(abstractControl);
       }
     });
+  }
+
+  showErrors(group: FormGroup) {
+    for (const c of Object.keys(group.controls)) {
+      const b = group.get(c);
+      if (!b.valid) {
+        b.markAsDirty();
+        b.markAsTouched();
+        b.updateValueAndValidity();
+      }
+    }
   }
 
   atLeastOneCheckboxCheckedValidator(minRequired = 1): ValidatorFn {
